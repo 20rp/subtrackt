@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Subscriptions {
+  subscriptionID              Int     @id @default(autoincrement())
+  subscriptionName            String
+  subscriptionProvider        String
+  subscriptionPaymentAmount   Float?
+  subscriptionCategory        String?
+  subscriptionPaymentInterval Int?
+  subscriptionLastPaymentDate String?
+  subscriptionNextDueDate     String?
+  subscriptionTotalSpend      Float?
+  createdAt                   String? @default("CURRENT_TIMESTAMP")
+}
