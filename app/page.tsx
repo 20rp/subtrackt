@@ -15,10 +15,11 @@ export default async function Page() {
             You have {allSubs.length} active subscriptions
           </p>
         </div>
-        {/* TODO */}
-        <button className="bg-white text-black px-4 py-2 rounded-lg font-medium text-sm">
-          + Add New
-        </button>
+        <a href="/new">
+          <button className="bg-white text-black px-4 py-2 rounded-lg font-medium text-sm">
+            + Add New
+          </button>
+        </a>
       </div>
       <div className="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/50">
         <table className="w-full text-sm text-left">
@@ -44,7 +45,7 @@ export default async function Page() {
                   {sub.subscriptionProvider}
                 </td>
                 <td className="px-6 py-4 text-right font-mono text-rose-400">
-                  {sub.subscriptionPaymentAmount?.toFixed(2) ?? "0.00"}
+                  ${sub.subscriptionPaymentAmount?.toFixed(2) ?? "0.00"}
                 </td>
                 <td className="px-6 py-4 text-gray-400">
                   {sub.subscriptionCategory ?? "Uncategorised"}
