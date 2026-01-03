@@ -1,4 +1,5 @@
 import { prisma } from "../lib/prisma";
+import { Button } from "@/components/ui/Button";
 
 export default async function Page() {
   const allSubs = await prisma.subscriptions.findMany();
@@ -7,7 +8,7 @@ export default async function Page() {
     <main className="p-4 md:p-10 max-w-7xl mx-auto">
       <div className="flex justify-between items-end mb-8">
         <div>
-          <h1 className="text-2xl font-bold">SubtrackT</h1>
+          <h1 className="text-2xl font-bold mb-8 text-white">SubtrackT</h1>
           <h2 className="text-gray-300 text-md">
             Lightweight Personal Subscription Manager
           </h2>
@@ -16,9 +17,12 @@ export default async function Page() {
           </p>
         </div>
         <a href="/new">
-          <button className="bg-white text-black px-4 py-2 rounded-lg font-medium text-sm">
+          <Button
+            className="w-auto px-4 py-2 text-xs flex-none shrink-0"
+            type="submit"
+          >
             + Add New
-          </button>
+          </Button>
         </a>
       </div>
       <div className="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/50">
