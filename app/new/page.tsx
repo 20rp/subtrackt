@@ -1,12 +1,16 @@
+import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { prisma } from "../../lib/prisma";
-import { Input } from "@/components/ui/Input";
+import { createSubscription } from "./actions";
 
 export default async function Page() {
   return (
     <main className="max-w-xl mx-auto p-8">
       <h1 className="text-2xl font-bold mb-8 text-white">New Subscription</h1>
-      <form className="space-y-6 bg-gray-900/30 p-8 rounded-2xl border border-gray-800">
+      <form
+        action={createSubscription}
+        className="space-y-6 bg-gray-900/30 p-8 rounded-2xl border border-gray-800"
+      >
         <Input
           label="Subscription Name"
           name="name"
