@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { prisma } from "../lib/prisma";
 import { Button } from "@/components/ui/Button";
 
@@ -27,14 +28,16 @@ export default async function Page() {
       </div>
       <div className="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/50">
         <table className="w-full text-sm text-left">
-          <thead className="text-gray-400 border-b border-gray-800 uppercase text-[10px] tracking-widest">
-            <th className="px-6 py-4">Name</th>
-            <th className="px-6 py-4">Provider</th>
-            <th className="px-6 py-4">Payment Amount</th>
-            <th className="px-6 py-4">Category</th>
-            <th className="px-6 py-4">Interval</th>
-            <th className="px-6 py-4">Last Payment</th>
-            <th className="px-6 py-4">Next Due</th>
+          <thead>
+            <tr className="text-gray-400 border-b border-gray-800 uppercase text-[10px] tracking-widest">
+              <th className="px-6 py-4">Name</th>
+              <th className="px-6 py-4">Provider</th>
+              <th className="px-6 py-4">Payment Amount</th>
+              <th className="px-6 py-4">Category</th>
+              <th className="px-6 py-4">Interval</th>
+              <th className="px-6 py-4">Last Payment</th>
+              <th className="px-6 py-4">Next Due</th>
+            </tr>
           </thead>
           <tbody className="divide-y divide-gray-800">
             {allSubs.map((sub) => (
@@ -43,7 +46,12 @@ export default async function Page() {
                 className="hover:bg-gray-800/30 transition-colors"
               >
                 <td className="px-6 py-4 font-medium text-white">
-                  {sub.subscriptionName}
+                  <Link
+                    href={`/subscriptions/${sub.subscriptionID}`}
+                    className="hover:text-rose-500 transition-colors font-medium cursor-pointer"
+                  >
+                    {sub.subscriptionName}
+                  </Link>
                 </td>
                 <td className="px-6 py-4 text-gray-400">
                   {sub.subscriptionProvider}

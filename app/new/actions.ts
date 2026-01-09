@@ -14,9 +14,10 @@ export async function createSubscription(formData: FormData) {
     data: {
       subscriptionName: name,
       subscriptionProvider: provider,
+      subscriptionCategory: category,
+      subscriptionPaymentInterval: interval,
       subscriptionPaymentAmount: amount,
       subscriptionNextDueDate: nextDue,
-      subscriptionCategory: category,
     },
   });
 
