@@ -17,14 +17,6 @@ export default async function Page() {
             You have {allSubs.length} active subscriptions
           </p>
         </div>
-        <a href="/new">
-          <Button
-            className="w-auto px-4 py-2 text-xs flex-none shrink-0"
-            type="submit"
-          >
-            + Add New
-          </Button>
-        </a>
       </div>
       <div className="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/50">
         <table className="w-full text-sm text-left">
@@ -48,7 +40,7 @@ export default async function Page() {
                 <td className="px-6 py-4 font-medium text-white">
                   <Link
                     href={`/subscriptions/${sub.subscriptionID}`}
-                    className="hover:text-rose-500 transition-colors font-medium cursor-pointer"
+                    className="hover:text-rose-500 transition-colors font-semibold cursor-pointer"
                   >
                     {sub.subscriptionName}
                   </Link>
