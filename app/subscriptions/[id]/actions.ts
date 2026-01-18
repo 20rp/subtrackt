@@ -11,6 +11,7 @@ export async function editSubscription(formData: FormData) {
   const category = formData.get("category") as string;
   const interval = parseInt(formData.get("interval") as string) || 30;
   const amount = parseFloat(formData.get("amount") as string);
+  const lastMade = formData.get("lastMade") as string;
   const nextDue = formData.get("nextDue") as string;
 
   await prisma.subscriptions.update({
@@ -21,6 +22,7 @@ export async function editSubscription(formData: FormData) {
       subscriptionCategory: category,
       subscriptionPaymentInterval: interval,
       subscriptionPaymentAmount: amount,
+      subscriptionLastPaymentDate: lastMade,
       subscriptionNextDueDate: nextDue,
     },
   });
