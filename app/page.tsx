@@ -40,7 +40,7 @@ export default async function Page() {
                 <td className="px-6 py-4 font-medium text-white">
                   <Link
                     href={`/subscriptions/${sub.subscriptionID}`}
-                    className="hover:text-rose-500 transition-colors font-semibold cursor-pointer"
+                    className="hover:text-rose-500 transition-colors font-medium cursor-pointer"
                   >
                     {sub.subscriptionName}
                   </Link>
