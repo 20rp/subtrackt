@@ -29,3 +29,14 @@ export async function editSubscription(formData: FormData) {
   revalidatePath(`/subscriptions/${id}`);
   redirect(`/subscriptions/${id}`);
 }
+
+export async function deleteSubscription(formData: FormData) {
+  const id = parseInt(formData.get("id") as string);
+
+  await prisma.subscriptions.delete({
+    where: { subscriptionID: id },
+  });
+
+  revalidatePath("/");
+  redirect("/");
+}

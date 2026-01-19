@@ -17,12 +17,10 @@ export function Button({
     primary: "bg-white text-black hover:bg-gray-200 rounded-xl",
     secondary:
       "bg-transparent border border-gray-800 text-white hover:bg-gray-900 rounded-xl",
-    // You could even add a 'header' variant later!
   };
 
   return (
     <button
-      // The order here matters: className is last so it can override defaults
       className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
