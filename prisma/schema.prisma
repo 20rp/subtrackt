@@ -1,11 +1,15 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
-  importFileExtension = "ts"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+}
+
+model User {
+  id String @id @default(uuid())
+  email String @unique
+  subscriptions Subscriptions[]
 }
 
 model Subscriptions {
@@ -15,8 +19,9 @@ model Subscriptions {
   subscriptionPaymentAmount   Float?
   subscriptionCategory        String?
   subscriptionPaymentInterval Int?
-  subscriptionLastPaymentDate String?
-  subscriptionNextDueDate     String?
-  subscriptionTotalSpend      Float?
-  createdAt                   String? @default("CURRENT_TIMESTAMP")
+  subscriptionLastPaymentDate DateTime?
+  subscriptionNextDueDate     DateTime?
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  createdAt                   DateTime @default(now())
 }
